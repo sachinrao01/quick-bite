@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -21,5 +23,10 @@ public class Restaurant {
     @OneToOne
     @JoinColumn(name = "manager_id")
     private User manager;
+
+    @OneToMany(mappedBy = "restaurant" , cascade = CascadeType.ALL)
+    private List<FoodItem> foodItems;
+
+
 
 }

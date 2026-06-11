@@ -16,8 +16,8 @@ public class SecurityConfig {
                 .csrf(csrf-> csrf.disable())
                 .formLogin(form->form.disable())
                 .authorizeHttpRequests(auth->
-                        auth.requestMatchers("/QuickBite/user/**").permitAll()
-                                .requestMatchers("/QuickBite/restaurant/**").permitAll()
+                        auth.requestMatchers("/quickbite/user/**").permitAll()
+                                .requestMatchers("/quickbite/**").permitAll()
                                 .anyRequest().authenticated());
 
 
