@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -21,9 +22,10 @@ public class Cart {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long cartId;
         @OneToOne(cascade=CascadeType.ALL)
+        @JoinColumn(name = "user_id")
         private User user;
-        @OneToMany(cascade=CascadeType.ALL)
-        private List<CartItem> items;
+        @OneToMany(mappedBy = "cart",cascade=CascadeType.ALL,orphanRemoval = true)
+        private List<CartItem> items = new ArrayList<>();
         private Double totalPrice;
     }
 

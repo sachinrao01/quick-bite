@@ -48,6 +48,8 @@ public class CartServiceImpl implements CartService {
         cartItem.setCategory(foodItem.getCategory());
         cartItem.setQuantity(1);
 
+        cartItem.setCart(cart);
+
 
         cart.getItems().add(cartItem);
 
@@ -128,7 +130,7 @@ public class CartServiceImpl implements CartService {
             cartItem.setPrice(foodItem.getPrice());
             cartItem.setCategory(foodItem.getCategory());
             cartItem.setQuantity(1);
-
+            cartItem.setCart(cart);
             cart.getItems().add(cartItem);
         }
 

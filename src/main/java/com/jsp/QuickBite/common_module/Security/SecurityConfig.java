@@ -1,4 +1,4 @@
-package com.jsp.QuickBite.Security;
+package com.jsp.QuickBite.common_module.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/quickbite/user/**").permitAll()
                                 .requestMatchers("/quickbite/**").permitAll()
+                              /*  .requestMatchers("/quickbite/fooditem/**").permitAll()
+                                .requestMatchers("/quickbite/orders/**").permitAll()
+                                .requestMatchers("/quickbite/payments/**").permitAll()
+                                .requestMatchers("/quickbite/restaurant/**").permitAll()
+                                .requestMatchers("/quickbite/cart/**").permitAll()*/
                                 .anyRequest().authenticated());
 
 

@@ -4,10 +4,7 @@ package com.jsp.QuickBite.cart_module.model;
 
 import com.jsp.QuickBite.restaurant_module.model.Category;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +19,9 @@ public class CartItem {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long cartItemId;
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
     private Long foodItemId;
     private Integer quantity;
     private Double price;
